@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>七上 2-1 查版本</title>
+<style>
+:root{--paper:#fcfbf8;--ink:#1c2130;--ink2:#4f5668;--line:#e4e1da;--blue:#3d6fb0;--red:#b23a2b;--green:#0f7a5a;--soft:#f4f2ee}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.55;font-size:17px}
+main{max-width:920px;margin:0 auto;padding:28px 16px 40px}
+.kick{color:var(--ink2);font-size:14px;font-weight:700;margin:0}
+h1{font-size:clamp(28px,7vw,42px);line-height:1.2;margin:.15em 0 .1em}
+.sub{margin:0 0 20px;color:var(--ink2)}
+.vers{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.vers button{font:inherit;font-size:20px;font-weight:800;padding:16px 4px;border:2px solid var(--blue);background:#fff;color:var(--blue);border-radius:12px;cursor:pointer}
+.vers button[aria-pressed=true]{background:var(--blue);color:#fff}
+.res{margin-top:14px;padding:18px;border-radius:14px;background:var(--soft);min-height:150px}
+.hint{color:var(--ink2);margin:0;padding-top:42px;text-align:center}
+.n{font-size:48px;font-weight:900;line-height:1.1;color:var(--green)}
+.n.zero{color:var(--red)}
+.where{font-weight:800;margin:.2em 0}
+.res p{margin:.3em 0 0}
+.go{font-weight:800;margin-top:12px!important;color:var(--blue)}
+h2{font-size:23px;margin:36px 0 2px}
+.lead{margin:0 0 12px;color:var(--ink2)}
+.dif svg{display:block;width:100%;height:auto;background:#fff}
+.dif svg.defs{position:absolute;width:0;height:0}
+.narrow{display:none}
+.src{font-size:13px;color:var(--ink2);border-top:1px solid var(--line);margin-top:36px;padding-top:12px}
+@media (max-width:640px){.dif svg.wide{display:none}.narrow{display:grid;gap:12px}}
+</style>
+</head>
+<body>
+<main>
+<p class="kick">從一題會考題走進 AI 備課</p>
+<h1>你的版本練過幾題？</h1>
+<p class="sub">七上 2-1：先正推、再逆推（因數成對）</p>
+<div class="vers" role="group" aria-label="選擇版本">
+<button data-v="kx" aria-pressed="false">康軒</button><button data-v="ny" aria-pressed="false">南一</button><button data-v="hl" aria-pressed="false">翰林</button>
+</div>
+<div class="res" id="res" aria-live="polite"><p class="hint">點你學校用的版本</p></div>
+
+<h2>帶回去看：成對逆推，三版本怎麼安排</h2>
+<p class="lead">第 20 題要的是這個想法：由一對因數，反推原數。</p>
+<div class="dif">
+<svg class="defs" aria-hidden="true"><defs><g id="pairg"><g transform="translate(0,0)"><rect x="0" y="0" width="290" height="384" rx="6" fill="#fafafa" stroke="#e6e6e6"/><rect x="0" y="0" width="290" height="32" rx="6" fill="#b23a2b"/><rect x="0" y="20" width="290" height="12" fill="#b23a2b"/><text x="145" y="22" font-size="17" text-anchor="middle" fill="#fff" font-family="inherit" font-weight="bold">康軒</text><text x="145" y="60" font-size="17" text-anchor="middle" fill="#333" font-family="inherit" font-weight="bold">因數序列</text><path d="M60 156 A85 60 0 0 1 230 156" fill="none" stroke="#b23a2b" stroke-width="3"/><path d="M26 156 A119 78 0 0 1 264 156" fill="none" stroke="#bbb" stroke-width="1.5" stroke-dasharray="4 4"/><circle cx="26" cy="172" r="15" fill="#fff" stroke="#999" stroke-width="1.5"/><text x="26" y="178" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">1</text><circle cx="60" cy="172" r="15" fill="#b23a2b" stroke="#b23a2b" stroke-width="1.5"/><text x="60" y="178" font-size="16" text-anchor="middle" fill="#fff" font-family="inherit" font-weight="bold">2</text><circle cx="94" cy="172" r="15" fill="#fff" stroke="#999" stroke-width="1.5"/><text x="94" y="178" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">3</text><circle cx="128" cy="172" r="15" fill="#fff" stroke="#999" stroke-width="1.5"/><text x="128" y="178" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">a</text><circle cx="162" cy="172" r="15" fill="#fff" stroke="#999" stroke-width="1.5"/><text x="162" y="178" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">6</text><circle cx="196" cy="172" r="15" fill="#fff" stroke="#999" stroke-width="1.5"/><text x="196" y="178" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">b</text><circle cx="230" cy="172" r="15" fill="#b23a2b" stroke="#b23a2b" stroke-width="1.5"/><text x="230" y="178" font-size="16" text-anchor="middle" fill="#fff" font-family="inherit" font-weight="bold">15</text><circle cx="264" cy="172" r="15" fill="#fff" stroke="#999" stroke-width="1.5"/><text x="264" y="178" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">M</text><text x="145" y="232" font-size="19" text-anchor="middle" fill="#b23a2b" font-family="inherit" font-weight="bold">M＝2×15＝30</text><text x="145" y="266" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">已知部分因數 → 反推原數</text><line x1="16" y1="326" x2="274" y2="326" stroke="#e6e6e6"/><text x="145" y="350" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">例 2＋隨堂</text><text x="145" y="372" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">（p.88）</text></g><g transform="translate(305,0)"><rect x="0" y="0" width="290" height="384" rx="6" fill="#fafafa" stroke="#e6e6e6"/><rect x="0" y="0" width="290" height="32" rx="6" fill="#3d7a6a"/><rect x="0" y="20" width="290" height="12" fill="#3d7a6a"/><text x="145" y="22" font-size="17" text-anchor="middle" fill="#fff" font-family="inherit" font-weight="bold">南一</text><text x="145" y="60" font-size="17" text-anchor="middle" fill="#333" font-family="inherit" font-weight="bold">磁磚排長方形的邊長</text><path d="M60 156 A85 60 0 0 1 230 156" fill="none" stroke="#3d7a6a" stroke-width="3"/><path d="M26 156 A119 78 0 0 1 264 156" fill="none" stroke="#bbb" stroke-width="1.5" stroke-dasharray="4 4"/><circle cx="26" cy="172" r="15" fill="#fff" stroke="#999" stroke-width="1.5"/><text x="26" y="178" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">1</text><circle cx="60" cy="172" r="15" fill="#3d7a6a" stroke="#3d7a6a" stroke-width="1.5"/><text x="60" y="178" font-size="16" text-anchor="middle" fill="#fff" font-family="inherit" font-weight="bold">2</text><circle cx="94" cy="172" r="15" fill="#fff" stroke="#999" stroke-width="1.5"/><text x="94" y="178" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">a</text><circle cx="128" cy="172" r="15" fill="#fff" stroke="#999" stroke-width="1.5"/><text x="128" y="178" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">b</text><circle cx="162" cy="172" r="15" fill="#fff" stroke="#999" stroke-width="1.5"/><text x="162" y="178" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">6</text><circle cx="196" cy="172" r="15" fill="#fff" stroke="#999" stroke-width="1.5"/><text x="196" y="178" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">c</text><circle cx="230" cy="172" r="15" fill="#3d7a6a" stroke="#3d7a6a" stroke-width="1.5"/><text x="230" y="178" font-size="16" text-anchor="middle" fill="#fff" font-family="inherit" font-weight="bold">12</text><circle cx="264" cy="172" r="15" fill="#fff" stroke="#999" stroke-width="1.5"/><text x="264" y="178" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">M</text><text x="145" y="232" font-size="19" text-anchor="middle" fill="#3d7a6a" font-family="inherit" font-weight="bold">M＝2×12＝24</text><text x="145" y="266" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">已知部分因數 → 反推原數</text><line x1="16" y1="326" x2="274" y2="326" stroke="#e6e6e6"/><text x="145" y="350" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">例 1＋隨堂</text><text x="145" y="372" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">（p.84）</text></g><g transform="translate(610,0)"><rect x="0" y="0" width="290" height="384" rx="6" fill="#fafafa" stroke="#e6e6e6"/><rect x="0" y="0" width="290" height="32" rx="6" fill="#a8741a"/><rect x="0" y="20" width="290" height="12" fill="#a8741a"/><text x="145" y="22" font-size="17" text-anchor="middle" fill="#fff" font-family="inherit" font-weight="bold">翰林</text><text x="145" y="60" font-size="17" text-anchor="middle" fill="#333" font-family="inherit" font-weight="bold">18 個積木分堆</text><text x="74" y="118" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">1</text><text x="74" y="158" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">18</text><text x="109" y="118" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">2</text><text x="109" y="158" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">9</text><text x="144" y="118" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">3</text><text x="144" y="158" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">6</text><text x="179" y="118" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">6</text><text x="179" y="158" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">3</text><text x="214" y="118" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">9</text><text x="214" y="158" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">2</text><text x="249" y="118" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">18</text><text x="249" y="158" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">1</text><text x="30" y="118" font-size="14" text-anchor="middle" fill="#555" font-family="inherit">堆數</text><text x="30" y="158" font-size="14" text-anchor="middle" fill="#555" font-family="inherit">每堆</text><line x1="16" y1="132" x2="274" y2="132" stroke="#ddd"/><line x1="16" y1="96" x2="274" y2="96" stroke="#ddd"/><line x1="16" y1="170" x2="274" y2="170" stroke="#ddd"/><text x="145" y="232" font-size="19" text-anchor="middle" fill="#a8741a" font-family="inherit" font-weight="bold">18＝2×9＝3×6</text><text x="145" y="266" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">已知原數 → 列出配對</text><text x="145" y="292" font-size="15" text-anchor="middle" fill="#a8741a" font-family="inherit" font-weight="bold">沒有反推原數</text><line x1="16" y1="326" x2="274" y2="326" stroke="#e6e6e6"/><text x="145" y="350" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">自我評量第 6 題</text><text x="145" y="372" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">（p.99）</text></g></g></defs></svg>
+<svg class="wide" viewBox="0 0 900 384" role="img" aria-label="康軒與南一都由一對因數反推原數；翰林已知原數列出配對，沒有反推原數"><use href="#pairg"/></svg>
+<div class="narrow">
+<svg viewBox="0 0 290 384" role="img" aria-label="康軒：因數序列，M＝2×15＝30"><use href="#pairg"/></svg>
+<svg viewBox="305 0 290 384" role="img" aria-label="南一：磁磚邊長，M＝2×12＝24"><use href="#pairg"/></svg>
+<svg viewBox="610 0 290 384" role="img" aria-label="翰林：18 個積木分堆，列出配對，沒有反推原數"><use href="#pairg"/></svg>
+</div>
+</div>
+
+<h2>帶回去看：這一節的最大差異</h2>
+<p class="lead">質因數分解，用什麼工具？</p>
+<div class="dif">
+<svg class="defs" aria-hidden="true"><defs><g id="difg">
+<g transform="translate(0,0)">
+<rect x="0" y="0" width="290" height="384" rx="6" fill="#fafafa" stroke="#e6e6e6" stroke-width="1"/>
+<rect x="0" y="0" width="290" height="32" rx="6" fill="#b23a2b"/>
+<rect x="0" y="20" width="290" height="12" fill="#b23a2b"/>
+<text x="145" y="22" font-size="17" text-anchor="middle" fill="#fff" font-family="inherit" font-weight="bold">康軒</text>
+<text x="145" y="60" font-size="17" text-anchor="middle" fill="#333" font-family="inherit" font-weight="bold">短除法</text>
+<text x="114" y="96" font-size="17" text-anchor="middle" fill="#333" font-family="inherit">2</text>
+<text x="144" y="96" font-size="17" text-anchor="middle" fill="#333" font-family="inherit">72</text>
+<line x1="125" y1="80" x2="125" y2="101" stroke="#333" stroke-width="1.3"/>
+<line x1="125" y1="101" x2="164" y2="101" stroke="#333" stroke-width="1.3"/>
+<text x="114" y="122" font-size="17" text-anchor="middle" fill="#333" font-family="inherit">2</text>
+<text x="144" y="122" font-size="17" text-anchor="middle" fill="#333" font-family="inherit">36</text>
+<line x1="125" y1="106" x2="125" y2="127" stroke="#333" stroke-width="1.3"/>
+<line x1="125" y1="127" x2="164" y2="127" stroke="#333" stroke-width="1.3"/>
+<text x="114" y="148" font-size="17" text-anchor="middle" fill="#333" font-family="inherit">2</text>
+<text x="144" y="148" font-size="17" text-anchor="middle" fill="#333" font-family="inherit">18</text>
+<line x1="125" y1="132" x2="125" y2="153" stroke="#333" stroke-width="1.3"/>
+<line x1="125" y1="153" x2="164" y2="153" stroke="#333" stroke-width="1.3"/>
+<text x="114" y="174" font-size="17" text-anchor="middle" fill="#333" font-family="inherit">3</text>
+<text x="144" y="174" font-size="17" text-anchor="middle" fill="#333" font-family="inherit">9</text>
+<line x1="125" y1="158" x2="125" y2="179" stroke="#333" stroke-width="1.3"/>
+<line x1="125" y1="179" x2="164" y2="179" stroke="#333" stroke-width="1.3"/>
+<text x="144" y="200" font-size="17" text-anchor="middle" fill="#333" font-family="inherit">3</text>
+<text x="145" y="238" font-size="17" text-anchor="middle" fill="#333" font-family="inherit">72＝2×2×2×3×3</text>
+<text x="145" y="266" font-size="19" text-anchor="middle" fill="#333" font-family="inherit">＝2<tspan dy="-8" font-size="15">3</tspan><tspan dy="8">​</tspan>×3<tspan dy="-8" font-size="15">2</tspan><tspan dy="8">​</tspan></text>
+<line x1="16" y1="322" x2="274" y2="322" stroke="#e6e6e6" stroke-width="1"/>
+<text x="145" y="346" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">短除法分解合數</text>
+<text x="145" y="370" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">寫成質因數連乘積（p.101）</text>
+</g>
+<g transform="translate(305,0)">
+<rect x="0" y="0" width="290" height="384" rx="6" fill="#fafafa" stroke="#e6e6e6" stroke-width="1"/>
+<rect x="0" y="0" width="290" height="32" rx="6" fill="#3d7a6a"/>
+<rect x="0" y="20" width="290" height="12" fill="#3d7a6a"/>
+<text x="145" y="22" font-size="17" text-anchor="middle" fill="#fff" font-family="inherit" font-weight="bold">南一</text>
+<text x="46" y="60" font-size="16" text-anchor="middle" fill="#333" font-family="inherit" font-weight="bold">樹狀圖</text>
+<text x="136" y="60" font-size="16" text-anchor="middle" fill="#333" font-family="inherit" font-weight="bold">短除法</text>
+<text x="234" y="60" font-size="16" text-anchor="middle" fill="#333" font-family="inherit" font-weight="bold">因數分解</text>
+<line x1="30.0" y1="97" x2="21.0" y2="107" stroke="#333" stroke-width="1.2"/>
+<line x1="41.4" y1="97" x2="49.5" y2="107" stroke="#333" stroke-width="1.2"/>
+<line x1="48.6" y1="125" x2="40.5" y2="135" stroke="#333" stroke-width="1.2"/>
+<line x1="59.4" y1="125" x2="67.5" y2="135" stroke="#333" stroke-width="1.2"/>
+<line x1="67.2" y1="153" x2="60.0" y2="163" stroke="#333" stroke-width="1.2"/>
+<line x1="76.8" y1="153" x2="84.0" y2="163" stroke="#333" stroke-width="1.2"/>
+<text x="36" y="92" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">36</text>
+<text x="16" y="120" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">2</text>
+<text x="54" y="120" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">18</text>
+<text x="36" y="148" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">2</text>
+<text x="72" y="148" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">9</text>
+<text x="56" y="176" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">3</text>
+<text x="88" y="176" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">3</text>
+<text x="110" y="92" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">2</text>
+<text x="140" y="92" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">36</text>
+<line x1="121" y1="76" x2="121" y2="97" stroke="#333" stroke-width="1.3"/>
+<line x1="121" y1="97" x2="160" y2="97" stroke="#333" stroke-width="1.3"/>
+<text x="110" y="120" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">2</text>
+<text x="140" y="120" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">18</text>
+<line x1="121" y1="104" x2="121" y2="125" stroke="#333" stroke-width="1.3"/>
+<line x1="121" y1="125" x2="160" y2="125" stroke="#333" stroke-width="1.3"/>
+<text x="110" y="148" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">3</text>
+<text x="140" y="148" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">9</text>
+<line x1="121" y1="132" x2="121" y2="153" stroke="#333" stroke-width="1.3"/>
+<line x1="121" y1="153" x2="160" y2="153" stroke="#333" stroke-width="1.3"/>
+<text x="140" y="176" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">3</text>
+<text x="176" y="92" font-size="15" text-anchor="start" fill="#333" font-family="inherit">36＝2×18</text>
+<text x="186" y="120" font-size="15" text-anchor="start" fill="#333" font-family="inherit">＝2×2×9</text>
+<text x="186" y="148" font-size="15" text-anchor="start" fill="#333" font-family="inherit">＝2×2×3×3</text>
+<text x="145" y="238" font-size="17" text-anchor="middle" fill="#333" font-family="inherit">36＝2×2×3×3</text>
+<text x="145" y="266" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">質因數2、3</text>
+<line x1="16" y1="322" x2="274" y2="322" stroke="#e6e6e6" stroke-width="1"/>
+<text x="145" y="346" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">樹狀圖、短除法、因數分解</text>
+<text x="145" y="370" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">寫成質因數的乘積（p.94）</text>
+</g>
+<g transform="translate(610,0)">
+<rect x="0" y="0" width="290" height="384" rx="6" fill="#fafafa" stroke="#e6e6e6" stroke-width="1"/>
+<rect x="0" y="0" width="290" height="32" rx="6" fill="#a8741a"/>
+<rect x="0" y="20" width="290" height="12" fill="#a8741a"/>
+<text x="145" y="22" font-size="17" text-anchor="middle" fill="#fff" font-family="inherit" font-weight="bold">翰林</text>
+<text x="78" y="60" font-size="16" text-anchor="middle" fill="#333" font-family="inherit" font-weight="bold">樹狀圖</text>
+<text x="214" y="60" font-size="16" text-anchor="middle" fill="#333" font-family="inherit" font-weight="bold">短除法</text>
+<line x1="58.8" y1="101" x2="48.0" y2="113" stroke="#333" stroke-width="1.2"/>
+<line x1="72.0" y1="101" x2="81.0" y2="113" stroke="#333" stroke-width="1.2"/>
+<line x1="79.4" y1="131" x2="69.5" y2="143" stroke="#333" stroke-width="1.2"/>
+<line x1="92.0" y1="131" x2="101.0" y2="143" stroke="#333" stroke-width="1.2"/>
+<line x1="100.0" y1="161" x2="91.0" y2="173" stroke="#333" stroke-width="1.2"/>
+<line x1="112.0" y1="161" x2="121.0" y2="173" stroke="#333" stroke-width="1.2"/>
+<text x="66" y="96" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">24</text>
+<text x="42" y="126" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">2</text>
+<text x="86" y="126" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">12</text>
+<text x="64" y="156" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">2</text>
+<text x="106" y="156" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">6</text>
+<text x="86" y="186" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">2</text>
+<text x="126" y="186" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">3</text>
+<text x="188" y="96" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">2</text>
+<text x="218" y="96" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">24</text>
+<line x1="199" y1="80" x2="199" y2="101" stroke="#333" stroke-width="1.3"/>
+<line x1="199" y1="101" x2="238" y2="101" stroke="#333" stroke-width="1.3"/>
+<text x="188" y="126" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">2</text>
+<text x="218" y="126" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">12</text>
+<line x1="199" y1="110" x2="199" y2="131" stroke="#333" stroke-width="1.3"/>
+<line x1="199" y1="131" x2="238" y2="131" stroke="#333" stroke-width="1.3"/>
+<text x="188" y="156" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">2</text>
+<text x="218" y="156" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">6</text>
+<line x1="199" y1="140" x2="199" y2="161" stroke="#333" stroke-width="1.3"/>
+<line x1="199" y1="161" x2="238" y2="161" stroke="#333" stroke-width="1.3"/>
+<text x="218" y="186" font-size="16" text-anchor="middle" fill="#333" font-family="inherit">3</text>
+<text x="145" y="238" font-size="17" text-anchor="middle" fill="#333" font-family="inherit">24＝2×2×2×3</text>
+<line x1="16" y1="322" x2="274" y2="322" stroke="#e6e6e6" stroke-width="1"/>
+<text x="145" y="346" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">樹狀圖、短除法</text>
+<text x="145" y="370" font-size="15" text-anchor="middle" fill="#333" font-family="inherit">分解為質因數的乘積（p.94）</text>
+</g>
+</g></defs></svg>
+<svg class="wide" viewBox="0 0 900 384" role="img" aria-label="質因數分解的工具：康軒用短除法；南一樹狀圖、短除法、因數分解三種並列；翰林樹狀圖與短除法並列"><use href="#difg"/></svg>
+<div class="narrow">
+<svg viewBox="0 0 290 384" role="img" aria-label="康軒：短除法"><use href="#difg"/></svg>
+<svg viewBox="305 0 290 384" role="img" aria-label="南一：樹狀圖、短除法、因數分解"><use href="#difg"/></svg>
+<svg viewBox="610 0 290 384" role="img" aria-label="翰林：樹狀圖、短除法"><use href="#difg"/></svg>
+</div>
+</div>
+
+<h2>想看課本原文</h2>
+<p class="lead">課本電子檔的連結，講師當天公布。</p>
+
+<p class="src">資料來源：115 學年度康軒、南一、翰林七上 2-1 學生課本，頁碼為課本頁碼，請以課本為準。本頁不含課本影像。<br>製作：蘇恭弘・數學王子（AI 協助製作）</p>
+</main>
+<script>
+const D={
+ kx:{n:'2 題',w:'例 2＋隨堂｜p.88',d:'因數由小到大排好，用頭尾配對求出原數，再補回中間的因數。'},
+ ny:{n:'2 題',w:'例 1＋隨堂｜p.84',d:'用正方形磁磚排長方形，邊長就是因數；由兩邊相乘相等求出總塊數。'},
+ hl:{n:'0 題',z:1,w:'最接近的是自我評量第 6 題｜p.99',d:'這一節沒有由因數序列反推原數的題目；第 6 題是積木分堆，列出配對即可。'}};
+const res=document.getElementById('res'),bs=[...document.querySelectorAll('.vers button')];
+bs.forEach(b=>b.onclick=()=>{const x=D[b.dataset.v];bs.forEach(o=>o.setAttribute('aria-pressed',o===b));
+ res.innerHTML='<div class="n'+(x.z?' zero':'')+'">'+x.n+'</div><p class="where">'+x.w+'</p><p>'+x.d+'</p><p class="go">查好了，回研習頁投票。</p>';});
+</script>
+</body>
+</html>
