@@ -189,7 +189,7 @@ const D={
  hl:{n:'0 題',z:1,w:'最接近的是自我評量第 6 題｜p.99',d:'這一節沒有由因數序列反推原數的題目；第 6 題是積木分堆，列出配對即可。'}};
 const res=document.getElementById('res'),bs=[...document.querySelectorAll('.vers button')];
 bs.forEach(b=>b.onclick=()=>{const x=D[b.dataset.v];bs.forEach(o=>o.setAttribute('aria-pressed',o===b));
- res.innerHTML='<div class="n'+(x.z?' zero':'')+'">'+x.n+'</div><p class="where">'+x.w+'</p><p>'+x.d+'</p><p class="go">查好了，回研習頁投票。</p>';});
+ res.innerHTML='<div class="n'+(x.z?' zero':'')+'">'+x.n+'</div><p class="where">'+x.w+'</p><p>'+x.d+'</p><p class="go">和你剛才在課本找到的一樣嗎？</p>';});
 </script>
 </body>
 </html>
